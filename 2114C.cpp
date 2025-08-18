@@ -37,6 +37,8 @@ using vstr = vector<string>;
 using vb   = vector<bool>;
 using vvb  = vector<vector<bool>>;
 
+// https://codeforces.com/problemset/problem/2114/C
+
 void solve() 
 {
 	

@@ -39,6 +39,8 @@ using vvb  = vector<vector<bool>>;
 
 int MOD = 1e9 + 7;
 
+// https://codeforces.com/problemset/problem/431/C
+
 void solve() 
 {
 	int n, k, d;
