@@ -47,50 +47,38 @@ void solve()
 	for(int i = 0; i < n; i++)
 		cin >> a[i];
 
-	vector<pii> dp(n);
-	dp[0] = {1, 1};
+    ll total = 0, INF = 500001;
+    int dp2 = 0, dp1 = 0;
 
-	if(a[0] > a[1])	
-	{
-		dp[1] = {4, 3};
-		if(a[1] > a[2])
-			dp[2] = {12, 7};
-		else
-			dp[2] = {4, 3};
-	}
-	else
-	{
-		dp[1] = {1, 1};
-		if(a[0] > a[2])
-			dp[2] = {6, 5};
-		else
-			dp[2] = {4, 3};
-	}
+    for(int i = 0; i < n; i++)
+    {
+        int prev1Val = (i - 1 >= 0 ? a[i - 1] : INF);
+        int prev2Val = (i - 2 >= 0 ? a[i - 2] : INF);
+        int curDp;
+        if(a[i] > prev1Val)
+            curDp = 1 + dp2;
+        else if(a[i] > prev2Val)
+            curDp = 1 + dp1;
+        else    
+            curDp = 1 + max(dp1, dp2);
 
-	for(int i = 3; i < n; i++)
-	{
-		if(a[i - 2] > a[i - 1])
-		{
-			if(a[i - 1] > a[i])
-				dp[i] = {2 * dp[i - 1].first + dp[i - 1].second + 1, 2 * dp[i - 1].second + 1};
-			else
-				dp[i] = {2 * dp[i - 2].first + dp[i - 2].second + 1, 2 * dp[i - 2].second + 1};
-		}
-		else
-		{
-			if(a[i - 2] > a[i])
-				dp[i] = {2 * (dp[i - 2].first + dp[i - 1].first) + dp[i - 2].second + dp[i - 1].second + 1, 2 * (dp[i - 2].second + dp[i - 1].second) + 1};
-			else
-				dp[i] = {2 * dp[i - 1].first + dp[i - 1].second + 1, 2 * dp[i - 1].second + 1};
-		}
-		if(a[i - 3] < min(a[i - 2], a[i - 1]) && a[i - 3] > a[i])
-		{
-			dp[i].first += 2 * dp[i - 3].first + dp[i - 3].second + 1;
-			dp[i].second += 2 * dp[i - 3].second + 1;
-		}
-	}
+        total += curDp;
+        dp2 = dp1;
+        dp1 = curDp;
+    }
 
-	cout << dp[n - 1].first << '\n';
+    ll res = total;
+
+    for(int i = 0; i < n - 1; i++)
+    {
+        if(a[i] < a[i + 1])
+            total--;
+        else if(a[i] > a[i + 1])
+            total -= n - i;
+        res += total;
+    }
+
+    cout << res << '\n';
 }
 
 bool multiple_testcases = true;
