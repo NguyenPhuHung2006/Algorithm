@@ -1,0 +1,19 @@
+{
+    "files.associations": {
+        "vector": "cpp",
+        "xiosbase": "cpp",
+        "functional": "cpp"
+    },
+
+    // Force MSYS2 g++ as the only compiler
+    "C_Cpp.default.compilerPath": "C:/msys64/ucrt64/bin/g++.exe",
+    "C_Cpp.default.configurationProvider": "",
+
+    // Code Runner settings
+    "code-runner.executorMap": {
+        "cpp": ""       // disables Code Runner default for C++
+    },
+    "code-runner.runInTerminal": true,   // ensures running in terminal
+    "code-runner.showRunIconInEditorTitleMenu": false, // hides extra Run Code button
+    "code-runner.saveFileBeforeRun": true
+}

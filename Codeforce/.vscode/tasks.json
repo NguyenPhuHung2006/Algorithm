@@ -6,6 +6,7 @@
             "type": "shell",
             "command": "g++",
             "args": [
+                "-g",
                 "${file}",
                 "-o",
                 "${fileDirname}/bin/${fileBasenameNoExtension}.exe"
@@ -21,10 +22,11 @@
                 "showReuseMessage": true,
                 "clear": false
             },
-            "group": "build",
-            "problemMatcher": [
-                "$gcc"
-            ]
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$gcc"]
         }
     ]
 }
