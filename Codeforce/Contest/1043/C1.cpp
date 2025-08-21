@@ -37,46 +37,41 @@ using vstr = vector<string>;
 using vb   = vector<bool>;
 using vvb  = vector<vector<bool>>;
 
-int MOD = 1e9 + 7;
 
-// https://codeforces.com/problemset/problem/431/C
+void solve() {
+    long long n;
+    cin >> n;
 
-void solve() 
-{
-	int n, k, d;
-	cin >> n >> k >> d;
-	vll dp(n + 1);
+    // find largest exponent of 3
+    long long p = 1;
+    int start = 0;
+    while (p * 3 <= n) {
+        p *= 3;
+        start++;
+    }
 
-	dp[1] = 1;
-	int start = 1;
-
-	for(int i = 2; i <= n; i++)
-	{
-		ll cur = 0;
-		if(i <= k)
-			cur++;
-
-		start = max(1, i - k);
-		for(int j = start; j < i; j++)
-			cur += dp[j];
-		
-		dp[i] = cur;
-	}
-	
-	int end = max(d, start);
-	ll res = dp[n];
-	for(int i = start; i < end; i++)
-		res -= dp[i];
-
-	cout << res % MOD << '\n';
+    long long res = 0;
+    for (int i = start; i >= 0; i--) {
+        long long num = n / p;
+        if (num > 0) {
+            // check if this is the intended formula
+            res += num * (3 * p + i * (p / 3));
+            n -= num * p;
+        }
+        p /= 3; // next smaller power of 3
+        if (n <= 0) break;
+    }
+    cout << res << '\n';
 }
 
+bool multiple_testcases = true;
 
 int main() 
 {
-    fastio;
+    fastio;     
     int t = 1;
-    // cin >> t;
+	if(multiple_testcases)
+	    cin >> t;
     while (t--) 
 		solve();
     return 0;
