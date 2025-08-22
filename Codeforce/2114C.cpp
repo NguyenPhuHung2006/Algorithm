@@ -41,7 +41,7 @@ using vvb  = vector<vector<bool>>;
 
 void solve() 
 {
-	
+	cout << "Hello world";	
 }
 
 bool multiple_testcases = true;

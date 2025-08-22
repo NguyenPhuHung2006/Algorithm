@@ -23,26 +23,16 @@ using namespace std;
 
 // ---------- Macros & Typedefs ----------
 #define fastio ios::sync_with_stdio(false); cin.tie(nullptr)
-#define all(x) (x).begin(), (x).end()
-#define rall(x) (x).rbegin(), (x).rend()
 
-using ll   = long long;
-using pii  = pair<int,int>;
-using pll  = pair<ll,ll>;
-using vi   = vector<int>;
-using vll  = vector<ll>;
-using vvi  = vector<vector<int>>;
-using vvll = vector<vector<ll>>;
-using vstr = vector<string>;
-using vb   = vector<bool>;
-using vvb  = vector<vector<bool>>;
+using ll = long long;
+
+bool multiple_testcases = true;
 
 void solve() 
 {
 
 }
 
-bool multiple_testcases = true;
 
 int main() 
 {
