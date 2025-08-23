@@ -28,11 +28,13 @@ using ll = long long;
 
 bool multiple_testcases = false;
 
+// https://codeforces.com/problemset/problem/431/C
+
 ll mod = 1e9 + 7;
 
 vector<pair<ll,ll>> cache;
 
-pair<ll,ll> dfs(int n, int k, int d, bool valid = false)
+pair<ll,ll> dfs(int n, int k, int d)
 {
 	if(n == 0)
 		return {1, 0};
@@ -44,14 +46,14 @@ pair<ll,ll> dfs(int n, int k, int d, bool valid = false)
 	{
 		if(t > n)
 			break;
-		bool curValid = valid || t >= d;
-		pair<ll,ll> next = dfs(n - t, k, d, curValid);
+		bool curValid = t >= d;
+		pair<ll,ll> next = dfs(n - t, k, d);
 
 		res1 = (res1 + next.first) % mod;
 		if(curValid)
 			res2 = (res2 + next.first) % mod;
 		else
-			res2  =(res2 + next.second) % mod;
+			res2 = (res2 + next.second) % mod;
 	}
 	return cache[n] = {res1, res2};
 }
