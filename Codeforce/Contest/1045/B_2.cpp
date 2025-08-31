@@ -28,9 +28,35 @@ using ll = long long;
 
 bool multiple_testcases = true;
 
+int Gcd(int a, int b)
+{
+	while(b != 0)
+	{
+		int t = b;
+		b = a % b;
+		a = t;
+	}
+	return a;
+}
+
 void solve() 
 {
-    
+	int n, k;
+	cin >> n >> k;
+	vector<ll> a(n);
+	for(ll& i : a)
+		cin >> i;
+
+	int g = 1;
+	while(Gcd(k, ++g) != 1);
+
+	for(auto i : a)
+	{
+		while(i % g != 0)
+			i += k;
+		cout << i << " ";
+	}
+	cout << '\n';
 }
 
 int main() 
