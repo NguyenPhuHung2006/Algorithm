@@ -30,7 +30,24 @@ bool multiple_testcases = true;
 
 void solve() 
 {
+	int n;
+	cin >> n;
+	vector<int> a(n);
+	for(auto& i : a)
+		cin >> i;
 
+	unordered_set<int> st;
+
+	for(int i : a)
+	{
+		if(st.count(i))
+		{
+			cout << "YES\n";
+			return;
+		}
+		st.insert(i);
+	}
+	cout << "NO\n";
 }
 
 int main() 
@@ -43,3 +60,4 @@ int main()
 		solve();
     return 0;
 }
+

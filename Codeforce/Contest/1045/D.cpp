@@ -30,7 +30,7 @@ bool multiple_testcases = true;
 
 void solve() 
 {
-
+    
 }
 
 int main() 
@@ -43,3 +43,4 @@ int main()
 		solve();
     return 0;
 }
+

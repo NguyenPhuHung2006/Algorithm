@@ -25,13 +25,17 @@ using namespace std;
 #define fastio ios::sync_with_stdio(false); cin.tie(nullptr)
 
 using ll = long long;
-
 bool multiple_testcases = true;
+
+// https://codeforces.com/gym/106049/problem/B
 
 void solve() 
 {
-
+	int n;
+	cin >> n;
+	cout << n - 3 << '\n';
 }
+
 
 int main() 
 {
@@ -43,3 +47,4 @@ int main()
 		solve();
     return 0;
 }
+

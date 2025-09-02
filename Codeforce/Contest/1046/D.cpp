@@ -25,11 +25,16 @@ using namespace std;
 #define fastio ios::sync_with_stdio(false); cin.tie(nullptr)
 
 using ll = long long;
-
 bool multiple_testcases = true;
 
 void solve() 
 {
+	int n;
+	cin >> n;
+	vector<pair<int,int>> pos(n);
+	for(int i = 0; i < n; i++)
+		cin >> pos[i].first >> pos[i].second;
+
 
 }
 
@@ -43,3 +48,4 @@ int main()
 		solve();
     return 0;
 }
+

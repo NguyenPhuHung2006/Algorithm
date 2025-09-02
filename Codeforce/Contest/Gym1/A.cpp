@@ -30,8 +30,11 @@ bool multiple_testcases = true;
 
 void solve() 
 {
+	int n, x, y;
+	cin >> n >> x >> y;
 
 }
+
 
 int main() 
 {
@@ -43,3 +46,4 @@ int main()
 		solve();
     return 0;
 }
+

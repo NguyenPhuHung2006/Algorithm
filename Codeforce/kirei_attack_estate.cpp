@@ -28,6 +28,8 @@ using ll = long long;
 
 bool multiple_testcases = true;
 
+// https://codeforces.com/contest/2114/problem/E
+
 void dfs(vector<vector<int>>& adj, vector<ll>& a, vector<bool>& visited, vector<ll>& res, int u = 1, ll wMax = 0, ll wMin = 0)
 {
 	if(visited[u])
